@@ -80,11 +80,8 @@ glyph_t glyphs_kannada[SCRIPT_KANNADA_LENGTH];
 
 //Multi-cell - RU
 
-script_t subscript_kan_ru_1;
-glyph_t glyphs_kan_ru_1[1];
-
-script_t subscript_kan_ru_1 = {1, 0, "KAN_", glyphs_kan_ru_1};
-glyph_t glyphs_kan_ru_1[1] = {{KAN_RU_2, "RU", &(glyphs_kannada[6]), NULL}};
+glyph_t kan_ru_1 = {KAN_RU_1, "RU", NULL, NULL};
+glyph_t kan_ru_2 = {KAN_RU_2, "RU_2", NULL, NULL};
 
 // Kannada script array
 glyph_t glyphs_kannada[SCRIPT_KANNADA_LENGTH] = {
@@ -94,7 +91,8 @@ glyph_t glyphs_kannada[SCRIPT_KANNADA_LENGTH] = {
 	{KAN_II, "II", NULL, NULL},
 	{KAN_U, "U", NULL, NULL},
 	{KAN_UU, "UU", NULL, NULL},
-	{KAN_RU_1, MP3_INVALID_PATTERN, NULL, &subscript_kan_ru_1},
+	{KAN_RU_1, "RU", NULL, &kan_ru_2},
+	{KAN_RU_2, "RU_2", &kan_ru_1 ,NULL},
 
 	{KAN_E, "E", NULL, NULL},
 	{KAN_EE, "EE", NULL, NULL},

@@ -21,7 +21,7 @@
 #define HIN_II				0b010100
 #define HIN_U				0b100101
 #define HIN_UU				0b110011
-#define HIN_RU_1 			0b010000	
+#define HIN_RU_1  			0b010000	
 #define HIN_RU_2			0b010111
 
 #define HIN_EE				0b010001
@@ -78,11 +78,9 @@ glyph_t glyphs_hindi[SCRIPT_HINDI_LENGTH];
 
 //Multi-cell - RU
 
-script_t subscript_hin_ru_1;
-glyph_t glyphs_hin_ru_1[1];
+glyph_t hin_ru_1 = {HIN_RU_1, "RU", NULL, NULL};
+glyph_t hin_ru_2 = {HIN_RU_2, "RU_2", NULL, NULL};
 
-script_t subscript_hin_ru_1 = {1, 0, "HIN_", glyphs_hin_ru_1};
-glyph_t glyphs_hin_ru_1[1] = {{HIN_RU_2, "RU", &(glyphs_hindi[6]), NULL}};
 
 // Hindi script array
 glyph_t glyphs_hindi[SCRIPT_HINDI_LENGTH] = {
@@ -92,7 +90,8 @@ glyph_t glyphs_hindi[SCRIPT_HINDI_LENGTH] = {
 	{HIN_II, "II", NULL, NULL},
 	{HIN_U, "U", NULL, NULL},
 	{HIN_UU, "UU", NULL, NULL},
-	{HIN_RU_1, MP3_INVALID_PATTERN, NULL, &subscript_hin_ru_1},
+	{HIN_RU_1, "RU", NULL, &hin_ru_2},
+	{HIN_RU_2, "RU_2", &hin_ru_1 ,NULL},
 
 	{HIN_EE, "EE", NULL, NULL},
 	{HIN_AI, "AI", NULL, NULL},
